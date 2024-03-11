@@ -10,7 +10,7 @@ sudo systemctl enable docker
 sudo usermod -aG docker $USER
 sudo chmod 777 /var/run/docker.sock
 
-# Pull and run SonarQube in a Docker container
+# Pull and run SonarQube in a Docker container u:admin p:admin
 docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 
 # Install Temurin-17-JDK
