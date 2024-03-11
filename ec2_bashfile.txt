@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Update the package index
+sudo apt-get update
+
+# Install Docker from the Ubuntu repositories
+sudo apt-get install docker.io -y
+
+# Start and enable the Docker service to start at boot
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# Add the current user to the Docker group to avoid using 'sudo' with Docker commands
+sudo usermod -aG docker $USER
+
+# Change permissions on the Docker socket
+sudo chmod 777 /var/run/docker.sock
+
+echo "Docker installation and configuration completed. You may need to log out and back in for changes to take effect."
