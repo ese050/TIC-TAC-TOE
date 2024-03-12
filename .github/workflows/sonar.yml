@@ -26,3 +26,14 @@ jobs:
 
       - name: Trivy image scanner dependency
         run: trivy fs . > trivfs.txt
+
+      - name: Docker build and push
+        run: |
+          # Run commands to build and push Docker images
+          docker build -t tic-tac-toe .
+          docker tag tic-tac-toe  ese050/tic-tac-toe:latest
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker push  ese050/tic-tac-toe:latest
+        env:
+          DOCKER_CLI_ACI: 1
+
