@@ -39,3 +39,16 @@ jobs:
 
       - name: Image scan
         run: trivy image ese11/tic-tac-toe:latest > trivyimage.txt
+  
+  deploy:
+   needs: build-analyze-scan
+   runs-on: [self-hosted]
+   steps:
+      - name: docker pull image
+        run: docker pull ese11/tic-tac-toe:latest
+
+      - name: scan deploy image
+        run: trivy image ese11/tic-tac-toe:latest > trivyimagedeploy.txt
+
+      - name: deploy to container
+        run: docker run -d --name game -p 3000 ese11/tic-tac-toe:latest
