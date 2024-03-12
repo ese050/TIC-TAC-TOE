@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: tic-tac-toe
-        image: ese050/tic-tac-toe:latest
+        image: ese11/tic-tac-toe:latest
         ports:
         - containerPort: 3000   # Use port 3000
 
