@@ -1,4 +1,4 @@
-name: Build,Analyze,scan
+name: Build, Analyze, scan
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 jobs:
   build-analyze-scan:
     name: Build
-    runs-on: [Eks, githubaction-eks, eserun]
+    runs-on: [self-hosted, Eks, githubaction-eks, eserun]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
