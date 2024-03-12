@@ -32,7 +32,7 @@ jobs:
           # Run commands to build and push Docker images
           docker build -t tic-tac-toe .
           docker tag tic-tac-toe ese05/tic-tac-toe:latest
-          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker push ese050/tic-tac-toe:latest
         env:
           DOCKER_CLI_ACI: 1
